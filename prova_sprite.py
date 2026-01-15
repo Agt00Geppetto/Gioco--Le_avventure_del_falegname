@@ -45,8 +45,8 @@ class MyGame(arcade.Window):
         self.lista_muri.append(self.barile)
         self.terreno = arcade.Sprite("./assets/terreno.png")
         self.terreno.center_x = 215
-        self.barile.center_y = 215
-        self.barile.scale = 1.0
+        self.terreno.center_y = 110
+        self.terreno.scale = 1.75
         self.lista_muri.append(self.terreno)
 
 
@@ -57,6 +57,7 @@ class MyGame(arcade.Window):
             arcade.LBWH(0,0,1400,800)
         ) 
         self.lista_p1.draw()
+        self.lista_muri.draw()
         
     def on_update(self, delta_time):
         self.lista_p1.update()
