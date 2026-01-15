@@ -10,8 +10,7 @@ class MyGame(arcade.Window):
         self.barile = None
         self.secchio = None
         self.pyshics_engine = None
-        self.lista_secchio = arcade.SpriteList()
-        self.lista_barile = arcade.SpriteList()
+        self.terreno = None
         self.lista_p1 = arcade.SpriteList()
         self.lista_muri = arcade.SpriteList()
         self.lista_piattafforme = arcade.SpriteList()
@@ -43,7 +42,13 @@ class MyGame(arcade.Window):
         self.barile.center_x = random.randint(50, 500)
         self.barile.center_y = 215
         self.barile.scale = 1.0
-        self.lista_barile.append(self.barile)
+        self.lista_muri.append(self.barile)
+        self.terreno = arcade.Sprite("./assets/terreno.png")
+        self.terreno.center_x = 215
+        self.barile.center_y = 215
+        self.barile.scale = 1.0
+        self.lista_muri.append(self.terreno)
+
 
     def on_draw(self):
         self.clear() 
