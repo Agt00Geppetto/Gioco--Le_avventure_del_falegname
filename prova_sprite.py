@@ -22,9 +22,11 @@ class MyGame(arcade.Window):
     def setup(self):
         self.p1 = arcade.Sprite("./assets/Geppetto.png")
         self.p1.center_x = 100
-        self.p1.center_y = 215
+        self.p1.center_y = 315
         self.p1.scale = 0.5
         self.lista_p1.append(self.p1)
+        self.crea_muri()
+
         self.pyshics_engine = arcade.PhysicsEnginePlatformer(
             player_sprite = self.p1,
             walls = self.lista_muri,
@@ -33,21 +35,25 @@ class MyGame(arcade.Window):
             gravity_constant = 0.5,
         )
         
-        self.crea_muri()
 
         self.background = arcade.load_texture("./assets/sfondoG3.png")
 
     def crea_muri(self):
         self.barile = arcade.Sprite("./assets/barile.png")
         self.barile.center_x = random.randint(50, 500)
-        self.barile.center_y = 215
-        self.barile.scale = 1.0
+        self.barile.center_y = 200
+        self.barile.scale = 0.75
         self.lista_muri.append(self.barile)
         self.terreno = arcade.Sprite("./assets/terreno.png")
         self.terreno.center_x = 215
-        self.terreno.center_y = 110
+        self.terreno.center_y = 75
         self.terreno.scale = 1.75
         self.lista_muri.append(self.terreno)
+        self.secchio = arcade.Sprite("./assets/secchio.png")
+        self.secchio.center_x = random.randint(50, 500)
+        self.secchio.center_y = 165
+        self.secchio.scale = 0.5
+        self.lista_muri.append(self.secchio)
 
 
     def on_draw(self):
